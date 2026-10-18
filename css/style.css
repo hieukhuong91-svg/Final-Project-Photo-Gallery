@@ -1,0 +1,130 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #dedede;
+  padding: 5px;
+  margin: 15px;
+  font-size: 25px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 1.95em;
+}
+
+h2 {
+  text-align: center;
+}
+
+li {
+  margin-top: 20px;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+/* ===================================================
+   YÊU CẦU 4: Mobile View (Mobile-First)
+   - Lưới 1 cột với gap 10px giữa hàng và cột[cite: 25]
+   =================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px; /* Gap 10px[cite: 25] */
+}
+
+figure {
+  margin: 0;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.label,
+figcaption {
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-top: 5px;
+}
+
+/* ===================================================
+   YÊU CẦU 5: Tablet View (Trigger tại 772px)[cite: 25]
+   =================================================== */
+@media screen and (min-width: 772px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Lưới 2 cột[cite: 25] */
+  }
+
+  figure {
+    border-radius: 50%; /* Bo tròn hình ảnh[cite: 25] */
+  }
+
+  figure:last-child {
+    grid-column: span 2; /* Ảnh/figure cuối cùng chiếm 2 cột[cite: 25] */
+  }
+}
+
+/* ===================================================
+   YÊU CẦU 6: Large Screen View (Trigger tại 992px)[cite: 25]
+   =================================================== */
+@media screen and (min-width: 992px) {
+  figure {
+    border-radius: 0; /* Xóa bo tròn[cite: 25] */
+  }
+
+  figure:last-child {
+    grid-column: auto; /* Khôi phục cột mặc định */
+  }
+
+  figure:nth-child(3n) {
+    grid-column: span 2; /* Mỗi figure thứ 3 chiếm 2 cột[cite: 25] */
+  }
+}
+
+/* ===================================================
+   YÊU CẦU 7: Prefers-Reduced-Motion Media Query[cite: 25]
+   =================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto; /* Tắt cuộn mượt[cite: 25] */
+  }
+}
+
+/* ===================================================
+   YÊU CẦU 8: Dark Mode Media Query[cite: 25, 26]
+   =================================================== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  figure {
+    background-color: #222222; /* Màu nền tối cho figure[cite: 25] */
+    color: #fffdd0; /* Màu chữ sáng ngả vàng[cite: 26] */
+    border-color: #000000; /* Viền màu đen[cite: 26] */
+  }
+
+  a {
+    color: #fffdd0;
+  }
+}
